@@ -54,7 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameModels\CreateGame.cs" />
+    <Compile Include="GameModels\EditGame.cs" />
+    <Compile Include="GameModels\GameDetail.cs" />
+    <Compile Include="GameModels\ListItemGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CreateTeam.cs" />
+    <Compile Include="EditTeam.cs" />
+    <Compile Include="ListItemTeam.cs" />
+    <Compile Include="SessionModels\CreateSession.cs" />
+    <Compile Include="SessionModels\DetailSession.cs" />
+    <Compile Include="SessionModels\EditSession.cs" />
+    <Compile Include="SessionModels\ListItemSession.cs" />
+    <Compile Include="TeamDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,5 +78,6 @@
       <Name>StandingsTable.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,6 +24,9 @@ namespace StandingsTable.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Session> Sessions { get; set; }
 
         public static ApplicationDbContext Create()
         {

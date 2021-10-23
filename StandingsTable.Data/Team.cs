@@ -14,17 +14,9 @@ namespace StandingsTable.Data
 
         [Required]
         public string Name { get; set; }
-
-        [Required]
         public int Wins { get; set; }
-
-        [Required]
         public int Draws { get; set; }
-
-        [Required]
         public int Loss { get; set; }
-
-        [Required]
         public int Points { get; set; }
 
     }

@@ -21,6 +21,7 @@ namespace StandingsTable.Data
         public virtual Team HomeTeam { get; set; }
         public int HomeTeamScore { get; set; }
 
+        
         [ForeignKey("AwayTeam")]
         public int? AwayTeamId { get; set; }
         public virtual Team AwayTeam { get; set; }

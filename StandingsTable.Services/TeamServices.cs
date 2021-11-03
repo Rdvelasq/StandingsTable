@@ -42,5 +42,41 @@ namespace StandingsTable.Services
 
             }
         }
+
+        public TeamDetails GetTeamByID(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Teams
+                    .Single(e => e.Id == id);
+                return
+                    new TeamDetails
+                    {
+                        Id = entity.Id,
+                        Name = entity.Name,
+                        Wins = entity.Wins,
+                        Draws = entity.Draws,
+                        Loss = entity.Loss,
+                        Points = entity.Points
+                    };
+            }
+        }
+
+        public bool UpdateTeam(EditTeam team)
+        {
+            using( var ctx = new ApplicationDbContext())
+            {
+                var entity = 
+                ctx
+                .Teams
+                .Single(e => e.Id == team.Id);
+                entity.Id = team.Id;
+                entity.Name = team.Name;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

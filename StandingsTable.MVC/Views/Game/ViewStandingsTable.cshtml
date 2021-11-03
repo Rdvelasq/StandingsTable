@@ -1,0 +1,60 @@
+﻿@model IEnumerable<StandingsTable.Models.TeamDetails>
+@{
+    ViewBag.Title = "ViewStandingsTable";
+    var position = 0;
+}
+
+
+<h2>ViewStandingsTable</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Position
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wins)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Draws)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loss)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Points)
+        </th>
+        <th></th>
+    </tr>
+
+    
+
+    @foreach (var item in Model.OrderByDescending(e => e.Points))
+    {
+
+        position++;
+        <tr>
+            <td>
+                @position.ToString()
+            </td>
+            <td>
+                @Html.DisplayFor(team => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(team => item.Wins)
+            </td>
+            <td>
+                @Html.DisplayFor(team => item.Draws)
+            </td>
+            <td>
+                @Html.DisplayFor(team => item.Loss)
+            </td>
+            <td>
+                @Html.DisplayFor(team => item.Points)
+            </td>
+        </tr>
+    }
+</table>

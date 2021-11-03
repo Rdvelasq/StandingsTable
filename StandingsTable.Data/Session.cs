@@ -12,7 +12,6 @@ namespace StandingsTable.Data
     {
         [Key]
         public int Id { get; set; }
-
         [Required]
         [ForeignKey(nameof(Game))]
         public List<int> GameIds { get; set; } = new List<int>();

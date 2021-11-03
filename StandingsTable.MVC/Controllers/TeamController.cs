@@ -39,5 +39,56 @@ namespace StandingsTable.MVC.Controllers
 
             return View(model);
         }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service =  new TeamServices();
+            var model = service.GetTeamByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTeam(int id)
+        {
+            var service = new TeamServices();
+
+            service.DeleteTeam(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var service = new TeamServices();
+            var detail = service.GetTeamByID(id);
+            var model =
+                new EditTeam
+                {
+                    Id = detail.Id,
+                    Name = detail.Name,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditTeam model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = new TeamServices();
+            if (service.UpdateTeam(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+        }
     }
 }

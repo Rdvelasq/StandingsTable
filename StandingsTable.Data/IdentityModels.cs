@@ -27,6 +27,7 @@ namespace StandingsTable.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Session> Sessions { get; set; }
+        public DbSet<Player> Players { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\StandingsTableController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -291,6 +292,9 @@
     <Content Include="Views\Player\Create.cshtml" />
     <Content Include="Views\Player\Edit.cshtml" />
     <Content Include="Views\Player\Delete.cshtml" />
+    <Content Include="Views\StandingsTable\Home.cshtml" />
+    <Content Include="Views\Team\ViewTeams.cshtml" />
+    <Content Include="Views\Player\ViewPlayers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,7 +16,7 @@ namespace StandingsTable.Models.PlayerModels
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = " s Field Player")]
+        [Display(Name = "Field Player")]
         public bool IsFieldPlayer { get; set; }
 
     }

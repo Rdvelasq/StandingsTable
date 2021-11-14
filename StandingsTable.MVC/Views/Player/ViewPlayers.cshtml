@@ -1,0 +1,58 @@
+﻿@model IEnumerable<StandingsTable.Models.PlayerModels.ListItemPlayer>
+
+@{
+    ViewBag.Title = "ViewPlayers";
+}
+
+<h2>ViewPlayers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Goals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Assist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFieldPlayer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Goals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFieldPlayer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Name)
+        </td>
+    </tr>
+}
+
+</table>

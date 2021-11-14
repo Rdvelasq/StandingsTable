@@ -86,6 +86,7 @@ namespace StandingsTable.MVC.Controllers
                 
         }
 
+
         public ActionResult ViewStandingsTable()
         {
             var service = new GameServices();

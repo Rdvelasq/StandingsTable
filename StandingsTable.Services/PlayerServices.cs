@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace StandingsTable.Services
 {
@@ -16,7 +17,9 @@ namespace StandingsTable.Services
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                IsFieldPlayer = model.IsFieldPlayer
+                IsFieldPlayer = model.IsFieldPlayer,
+                TeamId = model.TeamId
+                
             };
 
             using(var ctx = new ApplicationDbContext())
@@ -73,6 +76,44 @@ namespace StandingsTable.Services
                     .Players
                     .Select(e => e.Id == id);
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<SelectListItem> TeamSelectItem()
+        {
+            
+            using(var ctx = new ApplicationDbContext())
+            {
+                var viewModel = new CreatePlayer();
+                viewModel.Teams =
+                    ctx
+                    .Teams
+                    .Select(team => new SelectListItem
+                    {
+                        Text = team.Name,
+                        Value = team.Id.ToString()
+                    });
+                return viewModel.Teams.ToList();
+                  
+            }
+        }
+
+        public IEnumerable<ListItemPlayer> GetPlayers()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Players
+                    .Select(e => new ListItemPlayer
+                    {
+                        FirstName = e.FirstName,
+                        LastName = e.LastName,
+                        IsFieldPlayer = e.IsFieldPlayer,
+                        Team = e.Team
+                       
+                    });
+                return query.ToList();
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using StandingsTable.Data;
 using StandingsTable.Models;
+using StandingsTable.ModelS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,6 +77,25 @@ namespace StandingsTable.Services
                 entity.Name = team.Name;
 
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<ListItemTeam> GetTeams()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Teams
+                    .Select(e => new ListItemTeam
+                    {
+                        Name = e.Name,
+
+                    }
+                    );
+
+                return query.ToList();
+                    
             }
         }
     }

@@ -13,6 +13,7 @@ namespace StandingsTable.Data
         public int Id { get; set; }
 
         [Required]
+        [Display(Name = "Team Name")]
         public string Name { get; set; }
         public int Wins { get; set; }
         public int Draws { get; set; }

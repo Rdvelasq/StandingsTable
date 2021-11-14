@@ -19,7 +19,10 @@ namespace StandingsTable.MVC.Controllers
         
         public ActionResult Create()
         {
-            return View();
+            var service = new PlayerServices();
+            var viewModel = new CreatePlayer();
+            viewModel.Teams = service.TeamSelectItem();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -31,6 +34,7 @@ namespace StandingsTable.MVC.Controllers
                 return View(model);
             }
             var service = new PlayerServices();
+            model.Teams = service.TeamSelectItem();
             if (service.CreatePlayer(model))
             {
                 RedirectToAction("Index");
@@ -90,5 +94,13 @@ namespace StandingsTable.MVC.Controllers
 
             return View();
         }
+
+        public ActionResult ViewPlayers()
+        {
+            var service = new PlayerServices();
+            var model = service.GetPlayers();
+            return View(model);
+        }
+
     }
 }

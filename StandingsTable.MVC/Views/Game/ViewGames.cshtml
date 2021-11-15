@@ -1,0 +1,64 @@
+﻿@model IEnumerable<StandingsTable.Models.GameModels.ListItemGame>
+
+@{
+    ViewBag.Title = "ViewGames";
+}
+
+<h2>View Games</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <!--
+    <th>
+        //Html.DisplayNameFor(model => model.HomeTeam.Name)
+    </th>
+    --->
+        <th>
+            Home Team
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeTeamScore)
+        </th>
+        <!--
+    <th>
+        //Html.DisplayNameFor(model => model.AwayTeam.Name)
+            Was Displaying Team Name from the Team.cs in the Data layer Wanted even though in the models layer of ListItemGame I changed it display Away Team
+    </th>
+        --->
+        <th>
+            Away Team
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwayTeamScore)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeTeam.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.HomeTeamScore)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AwayTeam.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AwayTeamScore)
+    </td>
+</tr>
+}
+
+</table>
+<div>
+    <button type="button" onclick="history.back()" class="btn btn-outline-secondary">Go Back</button>
+</div>

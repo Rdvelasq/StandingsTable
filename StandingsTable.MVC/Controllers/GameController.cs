@@ -94,5 +94,12 @@ namespace StandingsTable.MVC.Controllers
             return View(model);
         }
 
+        public ActionResult ViewGames()
+        {
+            var service = new GameServices();
+            var games = service.GetGames();
+            return View(games);
+        }
+
     }
 }

@@ -111,7 +111,7 @@ namespace StandingsTable.Services
                     
             }
         }
-
+        
         public IEnumerable<TeamDetails> GetTeams()
         {
             using(var ctx = new ApplicationDbContext())
@@ -135,6 +135,27 @@ namespace StandingsTable.Services
                 
             }
             
+        }
+
+        public IEnumerable<ListItemGame> GetGames()
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Games
+                    .Select(e =>
+                                new ListItemGame
+                                {
+                                    Date = e.Date,
+                                    HomeTeam = e.HomeTeam,
+                                    HomeTeamScore = e.HomeTeamScore,
+                                    AwayTeam = e.AwayTeam,
+                                    AwayTeamScore = e.AwayTeamScore
+                                });
+                return query.ToList();
+            }
+                
         }
     }
 }

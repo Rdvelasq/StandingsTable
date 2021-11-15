@@ -295,6 +295,7 @@
     <Content Include="Views\StandingsTable\Home.cshtml" />
     <Content Include="Views\Team\ViewTeams.cshtml" />
     <Content Include="Views\Player\ViewPlayers.cshtml" />
+    <Content Include="Views\Game\ViewGames.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

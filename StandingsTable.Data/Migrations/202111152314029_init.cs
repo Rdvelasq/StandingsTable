@@ -3,7 +3,7 @@ namespace StandingsTable.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class inital : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -39,6 +39,22 @@ namespace StandingsTable.Data.Migrations
                         Points = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Players",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(nullable: false),
+                        LastName = c.String(nullable: false),
+                        Goals = c.Int(),
+                        Assist = c.Int(),
+                        TeamId = c.Int(),
+                        IsFieldPlayer = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Teams", t => t.TeamId)
+                .Index(t => t.TeamId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -127,6 +143,7 @@ namespace StandingsTable.Data.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Games", "Session_Id", "dbo.Sessions");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Players", "TeamId", "dbo.Teams");
             DropForeignKey("dbo.Games", "HomeTeamId", "dbo.Teams");
             DropForeignKey("dbo.Games", "AwayTeamId", "dbo.Teams");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -135,6 +152,7 @@ namespace StandingsTable.Data.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Players", new[] { "TeamId" });
             DropIndex("dbo.Games", new[] { "Session_Id" });
             DropIndex("dbo.Games", new[] { "AwayTeamId" });
             DropIndex("dbo.Games", new[] { "HomeTeamId" });
@@ -144,6 +162,7 @@ namespace StandingsTable.Data.Migrations
             DropTable("dbo.Sessions");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Players");
             DropTable("dbo.Teams");
             DropTable("dbo.Games");
         }

@@ -56,17 +56,9 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202110231331105_inital.cs" />
-    <Compile Include="Migrations\202110231331105_inital.Designer.cs">
-      <DependentUpon>202110231331105_inital.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110231439000_2nd.cs" />
-    <Compile Include="Migrations\202110231439000_2nd.Designer.cs">
-      <DependentUpon>202110231439000_2nd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111112232154_3rd migrati.cs" />
-    <Compile Include="Migrations\202111112232154_3rd migrati.Designer.cs">
-      <DependentUpon>202111112232154_3rd migrati.cs</DependentUpon>
+    <Compile Include="Migrations\202111152314029_init.cs" />
+    <Compile Include="Migrations\202111152314029_init.Designer.cs">
+      <DependentUpon>202111152314029_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
@@ -79,14 +71,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110231331105_inital.resx">
-      <DependentUpon>202110231331105_inital.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110231439000_2nd.resx">
-      <DependentUpon>202110231439000_2nd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111112232154_3rd migrati.resx">
-      <DependentUpon>202111112232154_3rd migrati.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111152314029_init.resx">
+      <DependentUpon>202111152314029_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

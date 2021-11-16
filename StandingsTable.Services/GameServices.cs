@@ -47,7 +47,7 @@ namespace StandingsTable.Services
                    homeTeam.Loss++;
 
                 }
-                else
+                else if(newGame.HomeTeamScore == newGame.AwayTeamScore)
                 {
                     homeTeam.Draws++;
                     awayTeam.Draws++;
